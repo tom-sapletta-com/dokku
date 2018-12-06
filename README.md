@@ -89,6 +89,43 @@ Dokku integrates well with GitHub and its tools. Deploying applications can be d
 
 To get the most out of Dokku, you will need a GitHub account. Sign up if you have not already and add an SSH key to your account for secure authentication from your local system. Make sure to add keys to your local SSH agent for both the GitHub and your Dokku server.
 
+
+# SSH Key Creation
+
+We'll be using SSH to connect to our server and it's a best practice to use SSH keys for authentication rather than passwords. Generate a new pair of SSH keys for use with your DigitalOcean account by running ssh-keygen on your local machine.
+
+It'll prompt you for a name for the SSH key files (specify id_rsa_digital_ocean) and a passphrase (pick something long you can remember) to secure the private key file.
+
+It should look something like this:
+
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/sehrope/.ssh/id_rsa): id_rsa_digital_ocean
+Your identification has been saved in id_rsa_digital_ocean.
+Your public key has been saved in id_rsa_digital_ocean.pub.
+The key fingerprint is:
+e2:44:e3:0b:52:86:40:2a:bd:5d:63:70:a3:88:01:ef sehrope@ls01
+
+I like to keep all my SSH keys in the ~/.ssh directory so to lets move them there:
+
+$ mv id_rsa_digital_ocean* ~/.ssh/.
+
+## SSH Config
+
+Normally, to log in to a server using an SSH key you need to specify it on the command line via -i. Rather than specifying it everytime, you can also add default SSH settings to your SSH config file, ~/.ssh/config.
+
+Edit the file (or create it if it doesn't exist) and add an entry for your domain name:
+
+Host launchbylunch.com
+  User root
+  IdentityFile ~/.ssh/id_rsa_digital_ocean
+
+Now, whenever I SSH to launchbylunch.com it'll default to using that specific SSH key file for authentication. I've also specified the default user to connect to on the remote server.
+
+As an added bonus, if you have shell completions setup properly then you can just type ssh l and then hit tab and it'll autocomplete server names for you.
+
+
+
 https://upcloud.com/community/tutorials/get-started-dokku-debian/
 
 Start by creating a new application on your Dokku server using the command below.
