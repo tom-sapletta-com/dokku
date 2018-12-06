@@ -89,6 +89,8 @@ Dokku integrates well with GitHub and its tools. Deploying applications can be d
 
 To get the most out of Dokku, you will need a GitHub account. Sign up if you have not already and add an SSH key to your account for secure authentication from your local system. Make sure to add keys to your local SSH agent for both the GitHub and your Dokku server.
 
+https://upcloud.com/community/tutorials/get-started-dokku-debian/
+
 Start by creating a new application on your Dokku server using the command below.
 
 # On your Dokku server
