@@ -183,9 +183,11 @@ You can then push the application onto your Dokku server with the following comm
 
 Once the deployment finishes, the application should be available on your Dokku server at the URL shown at the end of the output ruby-rails-sample.<dokku.example.com> for example. Click the link in your terminal or browse to the address to test the application.
 
-Ruby rails sample
+## Ruby rails sample
 
 http://dokku.viewdocs.io/dokku~v0.13.1/deployment/application-deployment/
 
+
+http://ruby-rails-sample.dokku.vodapp.com
 
 
