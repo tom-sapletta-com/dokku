@@ -187,7 +187,7 @@ Once the deployment finishes, the application should be available on your Dokku 
 
 http://dokku.viewdocs.io/dokku~v0.13.1/deployment/application-deployment/
 
-
-http://ruby-rails-sample.dokku.vodapp.com
+## Example Project
+https://github.com/tom-sapletta-com/test-dokku-nodejs-app
 
 
