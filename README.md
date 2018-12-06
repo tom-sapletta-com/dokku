@@ -69,7 +69,7 @@ When the installation is complete, you will need to perform a basic configuratio
 
 Note: To secure your Dokku host, it is important to complete the web setup process.
 
-Dokku setup
+# Dokku setup
 
 If you already included an SSH key at the server deployment it should show in the Public Key list for Admin Access. The keys in this list will be added to the dokku user account that is used to manage the application. Set at least one SSH key or include multiples each starting on their own line.
 
@@ -91,6 +91,8 @@ To get the most out of Dokku, you will need a GitHub account. Sign up if you hav
 
 
 # SSH Key Creation
+
+http://dokku.viewdocs.io/dokku/deployment/user-management/
 
 We'll be using SSH to connect to our server and it's a best practice to use SSH keys for authentication rather than passwords. Generate a new pair of SSH keys for use with your DigitalOcean account by running ssh-keygen on your local machine.
 
@@ -124,43 +126,50 @@ Now, whenever I SSH to launchbylunch.com it'll default to using that specific SS
 
 As an added bonus, if you have shell completions setup properly then you can just type ssh l and then hit tab and it'll autocomplete server names for you.
 
+# Check
+Listing SSH Keys
+http://dokku.viewdocs.io/dokku/deployment/user-management/
 
+    dokku ssh-keys:list
+
+
+# Start Example Deyployment
 
 https://upcloud.com/community/tutorials/get-started-dokku-debian/
 
 Start by creating a new application on your Dokku server using the command below.
 
-# On your Dokku server
+## On your Dokku server
     
     dokku apps:create ruby-rails-sample
 
 The app will require a Postgres plugin which can be installed with the following command.
 
-# Install Postgres plugin your Dokku server
+## Install Postgres plugin your Dokku server
     
     sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
 
 Then create a new database for the sample app.
 
-# Create a database on your Dokku server
+## Create a database on your Dokku server
     
     dokku postgres:create rails-database
 
 The official datastore offers a method to link the database service to an application. Use the command underneath to enable the sample app to access the database reserved for it.
 
-# Link the database to the application on your Dokku server
+## Link the database to the application on your Dokku server
     
     dokku postgres:link rails-database ruby-rails-sample
 
 With the Dokku server ready to receive the application, continue by downloading the sample app from GitHub on your local computer. In case you do not already have Git installed, you can find quick installation instructions for many different operating systems over at the git download page. The commands below are intended to be run on a Linux system.
 
-# On your local system
+## On your local system
     
     git clone https://github.com/heroku/ruby-rails-sample.git ~/ruby-rails-sample
 
 Then change into the downloaded repository directory and add a new remote location for git that points to your Dokku server with the application name added to the end of the domain name as shown in the example command below. Replace the <dokku.example.com> with your domain name.
 
-# On your local system
+## On your local system
   
     cd ~/ruby-rails-sample
     
@@ -168,7 +177,7 @@ Then change into the downloaded repository directory and add a new remote locati
 
 You can then push the application onto your Dokku server with the following command.
 
-# On your local system
+## On your local system
   
     git push dokku master
 
@@ -176,6 +185,7 @@ Once the deployment finishes, the application should be available on your Dokku 
 
 Ruby rails sample
 
+http://dokku.viewdocs.io/dokku~v0.13.1/deployment/application-deployment/
 
 
 
